@@ -3,10 +3,33 @@ import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 import colors from '../constants/colors';
 
-const Restaurant = ({ name, image_url, rating, location, cambio }) => {
-    const [x, setX] = useState(1);
+const Restaurant = ({
+    name,
+    image_url,
+    rating,
+    location,
+    navigation,
+    id,
+    price,
+    review_count,
+    phone,
+    categories,
+}) => {
+    const handleChangeScreen = (id) => {
+        navigation.navigate('About', {
+            id,
+            name,
+            rating,
+            location: location.address1,
+            image_url,
+            price,
+            review_count,
+            phone,
+            categories,
+        });
+    };
     return (
-        <TouchableOpacity onPress={() => cambio(x)}>
+        <TouchableOpacity onPress={() => handleChangeScreen(id)}>
             <View style={styles.containerGeneral}>
                 <View style={styles.containerResto}>
                     <Image style={styles.img} source={{ uri: image_url }} />

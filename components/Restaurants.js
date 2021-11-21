@@ -1,12 +1,15 @@
 import React from 'react';
-import { View, Text, Image, StyleSheet } from 'react-native';
+import { FlatList } from 'react-native';
 import AppLoading from 'expo-app-loading';
 import { useFonts } from 'expo-font';
 import useFetch from '../hooks/useFetch';
 import Restaurant from './Restaurant';
 import Loading from './Loading';
+import Search from './Search';
+import Welcome from './Welcome';
+import Tab from './Tab';
 
-const Restaurants = ({ cambio }) => {
+const Restaurants = ({ navigation }) => {
     const [data, loading] = useFetch();
 
     const [loaded] = useFonts({
@@ -16,17 +19,25 @@ const Restaurants = ({ cambio }) => {
     });
 
     if (!loaded) return <AppLoading />;
+
     return (
         <>
+            <Welcome />
+            <Search />
             {!loading && data?.length > 0 ? (
                 <>
-                    {data.map((resto) => (
-                        <Restaurant key={resto.id} {...resto} cambio={cambio} />
-                    ))}
+                    <FlatList
+                        data={data}
+                        keyExtractor={(item) => item.id}
+                        renderItem={({ item }) => (
+                            <Restaurant {...item} navigation={navigation} />
+                        )}
+                    />
                 </>
             ) : (
                 <Loading />
             )}
+            <Tab navigation={navigation} />
         </>
     );
 };

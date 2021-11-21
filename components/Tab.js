@@ -3,17 +3,17 @@ import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
 import colors from '../constants/colors';
 
-const Tab = () => {
+const Tab = ({ navigation }) => {
     return (
         <View style={styles.containerTab}>
-            <TouchableOpacity>
-                <FontAwesome name="home" size={22} color="black" />
+            <TouchableOpacity onPress={() => navigation.navigate('Home')}>
+                <FontAwesome name="home" size={22} color="white" />
             </TouchableOpacity>
             <TouchableOpacity>
-                <FontAwesome name="shopping-bag" size={22} color="black" />
+                <FontAwesome name="shopping-bag" size={22} color="white" />
             </TouchableOpacity>
             <TouchableOpacity>
-                <FontAwesome name="user" size={22} color="black" />
+                <FontAwesome name="user" size={22} color="white" />
             </TouchableOpacity>
         </View>
     );
@@ -26,9 +26,10 @@ const styles = StyleSheet.create({
         justifyContent: 'space-around',
         alignItems: 'center',
         height: 55,
-        backgroundColor: colors.secondary,
+        backgroundColor: '#ff6d49',
         borderTopWidth: 1,
         borderColor: '#18181840',
+        /* flex: 1, */
     },
 });
 
