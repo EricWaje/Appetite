@@ -1,9 +1,11 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, Button } from 'react-native';
 import AppLoading from 'expo-app-loading';
 import { useFonts } from 'expo-font';
 
 import Welcome from '../components/Welcome';
+import Form from './Form';
+import Footer from './Footer';
 
 const Home = ({ navigation }) => {
     const [loaded] = useFonts({
@@ -20,26 +22,16 @@ const Home = ({ navigation }) => {
             <View
                 style={{
                     justifyContent: 'space-between',
-
                     height: '90%',
                 }}
             >
                 <View style={styles.containerBienvenida}>
                     <Text style={styles.bienvenida}>
-                        ¡¡Empezá a darte los gustos que siempre quisiste!!
+                        ¡Empezá a darte los gustos que siempre quisiste!
                     </Text>
-                    <TouchableOpacity
-                        style={styles.containerPedir}
-                        onPress={() => navigation.navigate('Restaurants')}
-                    >
-                        <Text style={styles.texto}>Pedir comida 😋</Text>
-                    </TouchableOpacity>
+                    <Form navigation={navigation} />
                 </View>
-                <View style={styles.footer}>
-                    <Text style={{ color: 'white', fontFamily: 'RobotoLight' }}>
-                        ericwajnrajch.com
-                    </Text>
-                </View>
+                <Footer />
             </View>
         </View>
     );
@@ -47,7 +39,6 @@ const Home = ({ navigation }) => {
 
 const styles = StyleSheet.create({
     containerBienvenida: {
-        height: '50%',
         justifyContent: 'space-between',
         alignItems: 'center',
     },
@@ -60,23 +51,6 @@ const styles = StyleSheet.create({
         lineHeight: 37,
         color: '#ff6d49',
         fontFamily: 'Lobster',
-    },
-    containerPedir: {
-        backgroundColor: '#ff6d49',
-        padding: 12,
-        borderRadius: 10,
-    },
-    texto: {
-        color: 'white',
-        fontSize: 27,
-        fontFamily: 'RobotoBold',
-    },
-    footer: {
-        backgroundColor: '#ff6d49',
-        height: '20%',
-        width: '100%',
-        justifyContent: 'center',
-        alignItems: 'center',
     },
 });
 
