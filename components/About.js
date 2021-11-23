@@ -21,10 +21,10 @@ const About = ({ navigation, route }) => {
     }, []);
 
     return (
-        <View>
+        <View style={{ flex: 1 }}>
             <RestaurantDetail route={route} />
             <FlatList
-                style={{ marginBottom: 30 }}
+                style={{ marginBottom: 10 }}
                 data={menu}
                 keyExtractor={(item) => item.id}
                 renderItem={({ item }) => <Menu {...item} />}

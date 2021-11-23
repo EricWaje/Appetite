@@ -42,17 +42,16 @@ const styles = StyleSheet.create({
         marginLeft: 8,
         marginRight: 8,
         borderRadius: 10,
-        /*         shadowColor: '#000',
+        backgroundColor: '#f8f8f8',
+        shadowColor: '#30303052',
         shadowOffset: {
             width: 0,
-            height: 3,
+            height: 0,
         },
-        shadowOpacity: 0.29,
+        shadowOpacity: 0.49,
         shadowRadius: 2.65,
 
-        elevation: 7, 
-        No entiendo porque se lo aplica a todos los elementos en vez de al rectángulo
-        */
+        elevation: 7,
     },
     containerInfo: {
         width: '60%',

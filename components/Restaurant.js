@@ -70,11 +70,22 @@ const styles = StyleSheet.create({
         marginLeft: 20,
         marginRight: 20,
         flex: 1,
-        backgroundColor: colors.primary,
+        borderRadius: 10,
+        backgroundColor: 'white',
+        shadowColor: '#30303052',
+        shadowOffset: {
+            width: 0,
+            height: 0,
+        },
+        shadowOpacity: 0.49,
+        shadowRadius: 2.65,
+
+        elevation: 7,
     },
     img: {
         width: '100%',
         height: 130,
+        borderRadius: 10,
     },
     containerInfo: {
         padding: 12,

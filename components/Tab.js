@@ -27,9 +27,6 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         height: 55,
         backgroundColor: '#ff6d49',
-        borderTopWidth: 1,
-        borderColor: '#18181840',
-        /* flex: 1, */
     },
 });
 
