@@ -1,4 +1,4 @@
-import React from 'react';
+/* import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
 import colors from '../constants/colors';
@@ -31,3 +31,4 @@ const styles = StyleSheet.create({
 });
 
 export default Tab;
+ */

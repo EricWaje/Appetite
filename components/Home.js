@@ -5,7 +5,6 @@ import { useFonts } from 'expo-font';
 
 import Welcome from '../components/Welcome';
 import Form from './Form';
-import Footer from './Footer';
 
 const Home = ({ navigation }) => {
     const [loaded] = useFonts({
@@ -31,7 +30,6 @@ const Home = ({ navigation }) => {
                     </Text>
                     <Form navigation={navigation} />
                 </View>
-                <Footer />
             </View>
         </View>
     );

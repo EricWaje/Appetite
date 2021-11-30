@@ -37,7 +37,7 @@ const Restaurants = ({ navigation }) => {
             ) : (
                 <Loading />
             )}
-            <Tab navigation={navigation} />
+            {/* <Tab navigation={navigation} /> */}
         </>
     );
 };
