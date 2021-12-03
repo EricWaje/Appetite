@@ -1,5 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, FlatList, Image, StyleSheet } from 'react-native';
+import {
+    View,
+    Text,
+    FlatList,
+    Image,
+    StyleSheet,
+    ScrollView,
+} from 'react-native';
 import { comidas } from './menuMock';
 import Menu from './Menu';
 import RestaurantDetail from './RestaurantDetail';
@@ -23,12 +30,11 @@ const About = ({ navigation, route }) => {
     return (
         <View style={{ flex: 1 }}>
             <RestaurantDetail route={route} />
-            <FlatList
-                style={{ marginBottom: 10 }}
-                data={menu}
-                keyExtractor={(item) => item.id}
-                renderItem={({ item }) => <Menu {...item} />}
-            />
+            <ScrollView>
+                {menu.map((food) => (
+                    <Menu key={food.id} food={food} route={route} />
+                ))}
+            </ScrollView>
         </View>
     );
 };
