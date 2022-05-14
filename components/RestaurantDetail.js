@@ -10,7 +10,7 @@ const RestaurantDetail = ({ route }) => {
         <View style={{ marginTop: 30 }}>
             <View>
                 <Image
-                    style={{ width: '100%', height: 150 }}
+                    style={{ width: '100%', height: 150, marginTop: 10 }}
                     source={{ uri: image_url }}
                 />
             </View>

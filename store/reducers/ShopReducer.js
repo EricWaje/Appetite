@@ -1,4 +1,4 @@
-import { ADD_TO_CART } from '../actions/ShopActions';
+import { ADD_TO_CART, REMOVE_FROM_CART } from '../actions/ShopActions';
 
 const initialState = {
     selectedItems: { items: [], restaurantName: '' },
@@ -9,13 +9,11 @@ const shopReducer = (state = initialState, action) => {
         case ADD_TO_CART: {
             const newState = { ...state };
             if (action.payload.checkValue) {
-                console.log('add');
                 newState.selectedItems = {
                     items: [...newState.selectedItems.items, action.payload],
                     restaurant: action.payload.restaurantName,
                 };
             } else {
-                console.log('remove');
                 newState.selectedItems = {
                     items: [
                         ...newState.selectedItems.items.filter(
@@ -25,8 +23,18 @@ const shopReducer = (state = initialState, action) => {
                     restaurantName: action.payload.restaurantName,
                 };
             }
-            console.log(newState);
             return newState;
+        }
+        case REMOVE_FROM_CART: {
+            const productsFiltered = state.selectedItems.items.filter(
+                (prod) => prod.id !== action.payload
+            );
+            return {
+                selectedItems: {
+                    items: productsFiltered,
+                    restaurantName: '',
+                },
+            };
         }
         default:
             return state;

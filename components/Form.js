@@ -12,10 +12,10 @@ const Form = ({ navigation }) => {
     const inicio = () => {
         if (mostrar) {
             //login firebase
-            navigation.navigate('Restaurants');
+            navigation.navigate('Restaurant');
         } else {
             //crear cuenta firebase
-            navigation.navigate('Restaurants');
+            navigation.navigate('Restaurant');
         }
     };
 

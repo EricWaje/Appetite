@@ -3,10 +3,16 @@ import { View, Text, StyleSheet, Image } from 'react-native';
 import AppLoading from 'expo-app-loading';
 import { useFonts } from 'expo-font';
 import BouncyCheckbox from 'react-native-bouncy-checkbox';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { ADD_TO_CART } from '../store/actions/ShopActions';
 
 const Menu = ({ food, route }) => {
+    const [loaded] = useFonts({
+        RobotoLight: require('../assets/fonts/Roboto-Light.ttf'),
+        RobotoMedium: require('../assets/fonts/Roboto-Medium.ttf'),
+        RobotoBold: require('../assets/fonts/Roboto-Bold.ttf'),
+    });
+
     const { name } = route.params;
     const dispatch = useDispatch();
 
@@ -16,12 +22,6 @@ const Menu = ({ food, route }) => {
             payload: { ...item, restaurantName: name, checkValue: checkValue },
         });
     };
-
-    const [loaded] = useFonts({
-        RobotoLight: require('../assets/fonts/Roboto-Light.ttf'),
-        RobotoMedium: require('../assets/fonts/Roboto-Medium.ttf'),
-        RobotoBold: require('../assets/fonts/Roboto-Bold.ttf'),
-    });
 
     if (!loaded) return <AppLoading />;
     return (
